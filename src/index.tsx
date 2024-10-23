@@ -79,6 +79,31 @@ user.post('/', (c) => c.text('Create User')); // POST /user
 // 使用路由
 app.route('/', user);
 
+// 统一回调，不影响所使用的路由，比如 user实例
+// app.get('*', (c) => c.text('统一处理拦截'));
+
+// 设置标头等
+app.get('/welcome', (c) => {
+  // Set headers
+  c.header('X-Message', 'Hello!');
+  c.header('Content-Type', 'text/plain');
+
+  // Set HTTP status code
+  c.status(201);
+
+  // Return the response body
+  return c.body('Thank you for coming');
+});
+
+// 重定向，默认状态代码为 302（临时重定向，适合临时性操作）
+app.get('/redirect', (c) => {
+  return c.redirect('/');
+});
+// 指定 状态代码为 301（永久重定向，适合网站迁移）
+app.get('/redirect-permanently', (c) => {
+  return c.redirect('/', 301);
+});
+
 const port = 3000;
 
 serve({
