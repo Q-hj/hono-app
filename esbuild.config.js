@@ -6,7 +6,7 @@ esbuild
     bundle: true,
     platform: 'node',
     format: 'esm',
-    outfile: 'dist/index.js',
+    outfile: 'dist/app.js',
     tsconfig: 'tsconfig.json',
   })
   .catch(() => process.exit(1));

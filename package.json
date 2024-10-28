@@ -3,7 +3,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.tsx",
-    "build": "node esbuild.config.js"
+    "build": "node esbuild.config.js",
+    "start": "node dist/app.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.2",
