@@ -1,5 +1,5 @@
+import { basicAuth } from '@/middleware/basicAuth';
 import { Hono } from 'hono';
-import { basicAuth } from '../middleware/basicAuth.js';
 
 export const user = new Hono().basePath('/user');
 
