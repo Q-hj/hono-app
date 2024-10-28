@@ -1,9 +1,7 @@
-import { basicAuth } from '@/middleware/basicAuth';
+import { basicAuth, token } from '@/middleware/basicAuth';
 import { Hono } from 'hono';
 
 export const user = new Hono().basePath('/user');
-
-export const token = '15131dsad8564sda84dasf1';
 
 const accont = {
   username: 'admin',

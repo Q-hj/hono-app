@@ -1,13 +1,14 @@
 import type { Context, Next } from 'hono';
 
-// 定义自定义的 Hono Context 接口
+/** 全局token */
+export const token = '15131dsad8564sda84dasf1';
 
 // 登录校验
 export const basicAuth = (c: Context, next: Next) => {
   const token = c.req.header('token');
 
-  // 未携带token
-  if (token !== '15131dsad8564sda84dasf1') {
+  if (!token) {
+    // 未携带token
     return c.json(
       {
         error: 'Unauthorized - You must be an admin to access this resource.',
@@ -15,8 +16,17 @@ export const basicAuth = (c: Context, next: Next) => {
       },
       403
     );
+  } else if (token !== '15131dsad8564sda84dasf1') {
+    // 未携带token
+    return c.json(
+      {
+        error: 'Unauthorized - You must be an admin to access this resource.',
+        message: 'token 搞错了哟~',
+      },
+      403
+    );
+  } else {
+    // 放行
+    next();
   }
-
-  // 放行
-  next();
 };
