@@ -3,14 +3,16 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.tsx",
-    "build": "esbuild  src/index.tsx --bundle --platform=node --format=esm --outfile=dist/index.js"
+    "build": "node esbuild.config.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.2",
+    "@vercel/node": "^3.2.23",
     "hono": "^4.6.6"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
+    "esbuild": "^0.24.0",
     "tsx": "^4.7.1"
   }
 }
